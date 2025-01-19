@@ -8,7 +8,11 @@ The user sends a slash command through slack (/remind, etc) and attaches the .cs
 Most probably Slack Bolt, but feel free to use any solution that works!
 
 ## What do we need to figure out?
-We'll need to create a pipeline/sequence of events that allows for our entire request to go through. Uploading/reading files via slackbot seems to be a little more complicated than creating a normal chatbot, and there aren't too many YouTube tutorials that show how to implement this functionality, so we'll need to do some trial and error.
+We'll need to create a pipeline/sequence of events that allows for our entire request to go through. It goes as follows:
+1. Read the request (the slack command).
+2. Take the file uploaded and parse it, finding names.
+3. Once these names are found, send DMs to everyone.
+Uploading/reading files via slackbot seems to be a little more complicated than creating a normal chatbot, and there aren't too many YouTube tutorials that show how to implement this functionality, so we'll need to do some trial and error.
 
 ## How do we handle requests?
 Most probably AWS Lambda, a serverless solution.
